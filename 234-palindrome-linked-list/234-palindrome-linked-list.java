@@ -22,7 +22,6 @@ class Solution {
             stack.push(slow.val);
             slow = slow.next;
         }
-        System.out.println(stack);
         ListNode temp = head;
         while(temp!=null){
             if(!stack.isEmpty() && stack.pop() != temp.val) return false;
