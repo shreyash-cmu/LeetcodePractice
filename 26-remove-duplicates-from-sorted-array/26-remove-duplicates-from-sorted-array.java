@@ -5,6 +5,6 @@ class Solution {
             if(nums[i] != nums[uniqueIndex])
                 nums[++uniqueIndex] = nums[i];
         }
-        return uniqueIndex+1;
+        return ++uniqueIndex;
     }
 }
