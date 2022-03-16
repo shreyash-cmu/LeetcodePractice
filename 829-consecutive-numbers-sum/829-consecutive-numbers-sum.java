@@ -22,11 +22,10 @@ class Solution {
         return ansCnt+1;*/
         /*
             runningSum = N;
-            keep on subtracting i form the runningSum;
+            keep on subtracting i in range (1, rootn) form the runningSum;
             if runningSum % i ===0 then incresase count
-            else break;
             
-            runningsSum = 9
+            runningsSum = 10 - 
             i = 1
             
             
