@@ -1,6 +1,6 @@
 class Solution {
     public String customSortString(String order, String s) {
-        HashMap<Character, Integer> map = new HashMap();
+        Map<Character, Integer> map = new LinkedHashMap();
         for(Character c: s.toCharArray()){
             map.put(c, map.getOrDefault(c,0)+1);
         }
