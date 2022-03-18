@@ -43,7 +43,7 @@ class Solution {
                 if(curr.right != null){
                     q2.add(curr.right);
                 }
-                curr = curr.next;
+                //curr = curr.next;
             }
             q1 = q2;
             q2 = new LinkedList<Node>();
