@@ -14,7 +14,7 @@ class Solution {
         Set<String> set = new HashSet<>();
         for(Map.Entry<Integer, List<Pair<Integer, Integer>>> e: map.entrySet())
         { 
-            Collections.sort(e.getValue(), (p1, p2)-> p1.getKey()==p2.getKey()?p1.getValue()-p2.getValue():p1.getKey()-p2.getKey());
+            //Collections.sort(e.getValue(), (p1, p2)-> p1.getKey()==p2.getKey()?p1.getValue()-p2.getValue():p1.getKey()-p2.getKey());
             set.add(e.getValue().toString());}
         
         
