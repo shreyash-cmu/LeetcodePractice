@@ -17,13 +17,11 @@ class BrowserHistory {
     }
     
     public void visit(String url) {
-        System.out.println("Inside visit "+ "Forward ="+forward.toString()+" currentPage "+ currentPage.toString());
         currentPage.push(url);
         forward = new Stack<>();
     }
     
     public String back(int steps) {
-        System.out.println("Inside back "+ "Forward ="+forward.toString()+" currentPage "+ currentPage.toString());
         while(steps-- >0 && !currentPage.isEmpty()){
             forward.push(currentPage.pop());
         }
@@ -34,7 +32,6 @@ class BrowserHistory {
     }
     
     public String forward(int steps) {
-        System.out.println("Inside fwd "+ " Forward ="+forward.toString()+" currentPage "+ currentPage.toString());
         while(steps-- >0 && !forward.isEmpty()){
             currentPage.push(forward.pop());
         }
