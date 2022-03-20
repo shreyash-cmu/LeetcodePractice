@@ -16,6 +16,9 @@ class Solution {
         }
         
         for(int i=str2.length()-1;i>=0;i--){
+            if(str1.length() % (i+1)!=0){
+                 continue;
+         }
             String check = str2.substring(0,i+1);
             String[] arr = str1.split(check);
             String[] arr2 = str2.split(check);
