@@ -22,24 +22,11 @@ class Solution {
     
     public int minMoves(int[] nums) {
         Arrays.sort(nums);
-        int cumm=0;
-        int lowest = 0;
-        for(int i=nums.length-1; i>=0; i--){
-            lowest = nums[(i+1)%nums.length];
-                if(cumm+nums[i]>lowest) {
-                    nums[i]= nums[i]+cumm; cumm += nums[i]-lowest;
-                }else{
-                    return cumm;
-                }
-            
+        int count = 0;
+        for (int i = 1; i < nums.length; i++) {
+            count += nums[i] - nums[0];
         }
-        return cumm;
-        
-        // int count = 0;
-        // for (int i = 1; i < nums.length; i++) {
-        //     count += nums[i] - nums[0];
-        // }
-        // return count;
+        return count;
         
     }
 }
