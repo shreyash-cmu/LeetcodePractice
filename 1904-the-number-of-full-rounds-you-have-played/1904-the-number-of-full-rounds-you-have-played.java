@@ -31,12 +31,12 @@ class Solution {
             
             mm1 += (15-(mm1%15));
         }
-        System.out.println(mm1);
+        
         if(mm2%15!=0){
-            System.out.println("Yelo "+ mm2%15);
+            
             mm2 -= (mm2%15);
         }
-        System.out.println(mm2);
+        
         totalMinutes += mm2;
         totalMinutes -= mm1;
         return totalMinutes/15>0?totalMinutes/15:0;
