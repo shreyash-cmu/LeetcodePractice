@@ -17,7 +17,7 @@ class Solution {
         return binarySearch(0, matrix[0].length-1, matrix[matrix.length-1], target);
     }
     boolean binarySearch(int left, int right, int[] matrix, int target){
-        System.out.println(matrix[0]);
+        
         while(left<=right){
             int mid = (left + right) /2;
             if(matrix[mid]==target){
