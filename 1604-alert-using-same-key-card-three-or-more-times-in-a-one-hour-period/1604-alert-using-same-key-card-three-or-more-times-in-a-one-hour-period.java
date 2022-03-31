@@ -25,7 +25,6 @@ class Solution {
             map.putIfAbsent(keyName[i], new ArrayList<Integer>());
             map.get(keyName[i]).add(time);
         }
-        System.out.println(map);
         for(String key: map.keySet()){
             List<Integer> l = map.get(key);
             Collections.sort(l);
