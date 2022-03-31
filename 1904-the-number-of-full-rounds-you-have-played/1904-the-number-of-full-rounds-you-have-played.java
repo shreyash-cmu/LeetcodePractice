@@ -11,34 +11,29 @@ class Solution {
             mm1 + mm2 + prevresult
             divide it by 15 to get the final number
         */
+        int start = toMinutes(loginTime);
+        int end = toMinutes(logoutTime);
         
-        int totalMinutes = 0;
-        int hh1 = Integer.parseInt(loginTime.substring(0,loginTime.indexOf(":")));
-        int mm1 = Integer.parseInt(loginTime.substring(loginTime.indexOf(":")+1));
-        int hh2 = Integer.parseInt(logoutTime.substring(0,logoutTime.indexOf(":")));
-        int mm2 = Integer.parseInt(logoutTime.substring(logoutTime.indexOf(":")+1));
-        if(hh2<hh1){
-            int loginHrs = 24 - hh1;
-            totalMinutes =  (hh2+loginHrs)*60;
-        }else if( hh1 == hh2 && mm1>mm2){
-            totalMinutes += (24*60);
+        int roundedStart = toNextQuarter(start);
+        int roundedEnd = toPreviousQuarter(end);
+        
+        if (start < end) {
+            return Math.max(0, (roundedEnd - roundedStart) / 15);
         }
         
-        else{
-            totalMinutes += ((hh2 -hh1) *60);
-        }
-        if(mm1%15!=0){
-            
-            mm1 += (15-(mm1%15));
-        }
-        
-        if(mm2%15!=0){
-            
-            mm2 -= (mm2%15);
-        }
-        
-        totalMinutes += mm2;
-        totalMinutes -= mm1;
-        return totalMinutes/15>0?totalMinutes/15:0;
+        return ((roundedEnd+ 24 * 60) - roundedStart ) / 15;
+    }
+    
+    public static int toMinutes(String s) {
+        return Integer.parseInt(s.substring(0, 2)) * 60
+            + Integer.parseInt(s.substring(3, 5));
+    }
+    
+    public static int toNextQuarter(int time) {
+        return ((time + 14) / 15) * 15;
+    }
+
+    public static int toPreviousQuarter(int time) {
+        return (time / 15) * 15;
     }
 }
