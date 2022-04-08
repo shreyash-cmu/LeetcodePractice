@@ -14,23 +14,13 @@ class Solution {
         while(k>0&& !pq.isEmpty()){
             int currValue = pq.poll();
             int diff = currValue - startNum;
-            //System.out.println("CurrentVal: "+ currValue + " diff "+ diff);
             if(diff>1 && diff>k){
-                while(k>0){
-                    startNum++;
-                    k--;
-                }
-                return startNum;
+                return startNum+k;
             }else if(diff>1){
                 k = k-diff+1;
             }
-            //System.out.println("KVal "+ k);
             startNum = currValue;
         }
-        while(k>0){
-            startNum++;
-            k--;
-        }
-        return startNum;
+        return k>0?startNum+k:startNum;
     }
 }
