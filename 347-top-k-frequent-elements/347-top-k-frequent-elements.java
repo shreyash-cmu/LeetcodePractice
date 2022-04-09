@@ -1,20 +1,27 @@
 class Solution {
+    class Pair{
+        int num; int freq;
+        public Pair(int num, int freq){
+            this.num = num;
+            this.freq = freq;
+        }
+    }
     public int[] topKFrequent(int[] nums, int k) {
-        HashMap<Integer,Integer> map = new HashMap<>();
+        Map<Integer,Integer> map = new HashMap<>();
         for(int num:nums){
             map.put(num, map.getOrDefault(num,0)+1);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a,b) ->a[1]-b[1]);
-        for(int key: map.keySet()){
-            pq.offer(new int[]{key, map.get(key)});
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>((a,b)-> a.freq - b.freq);
+        for(Map.Entry<Integer,Integer> e:map.entrySet()){
+            pq.offer(new Pair(e.getKey(),e.getValue()));
             if(pq.size()>k){
                 pq.poll();
             }
         }
         int[] ret = new int[k];
-        int counter =0;
+        int idx=0;
         while(!pq.isEmpty()){
-            ret[counter++]= pq.poll()[0];
+            ret[idx++]=pq.poll().num;
         }
         return ret;
     }
