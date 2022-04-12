@@ -20,9 +20,6 @@ class Solution {
         }else{
             right = start;
         }
-        System.out.println(left);
-        System.out.println(right);
-        
         while(left<=right){
             int midpoint = left + (right-left)/2;
             if(nums[midpoint]==target){
