@@ -1,20 +1,19 @@
 class Solution {
-    List<List<Integer>> ret = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
-        helper(nums, new ArrayList<>());
+        List<List<Integer>> ret = new ArrayList<>();
+        helper(nums,new ArrayList<Integer>(), ret);
         return ret;
     }
-    void helper(int[] nums, List<Integer> levelList){
-        
-        if(levelList.size() == nums.length){
-            ret.add(new ArrayList<>(levelList));
+    void helper(int[] nums, List<Integer> levels, List<List<Integer>> ret){
+        if(levels.size()== nums.length){
+            ret.add(new ArrayList<Integer>(levels));
             return;
         }
-        for(int i = 0;i<nums.length;i++){
-            if(levelList.contains(nums[i]))continue;
-            levelList.add(nums[i]);
-            helper(nums,levelList);
-            levelList.remove(levelList.size()-1);
+        for(int i=0;i<nums.length;i++){
+            if(levels.contains(nums[i]))continue;
+            levels.add(nums[i]);
+            helper(nums,levels,ret);
+            levels.remove(levels.size()-1);
         }
     }
 }
