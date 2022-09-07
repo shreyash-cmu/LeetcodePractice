@@ -15,6 +15,7 @@ class Solution {
             }else if (nums[i-1]==nums[i])
             {
                 continue;
+                //this is a comment
             }
             else{
                 runningLength = 1;
